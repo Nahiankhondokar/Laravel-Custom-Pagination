@@ -1,8 +1,9 @@
-        $perPage = 10; 
-        $currentPage = $request->query('page', 1);
+## Laravel Custom pagination
+        $perPage = 10; // item limit
+        $currentPage = $request->query('page', 1); // page come form request
 
-        $collection = collect($newArr)->sortByDesc('order_count');
-        $currentPageItems = $collection->forPage($currentPage, $perPage)->values()->all();
+        $collection = collect($newArr)->sortByDesc('attribute name'); // sort by desc
+        $currentPageItems = $collection->forPage($currentPage, $perPage)->values()->all(); // page wise items
 
         $paginator = new LengthAwarePaginator(
             $currentPageItems,
@@ -10,7 +11,7 @@
             $perPage,
             $currentPage,
             ['path' => $request->url(), 'query' => $request->query()]
-        );
+        ); // Laravel paginator class use for pagination
 
         $paginationData = [
             'current_page' => $paginator->currentPage(),
