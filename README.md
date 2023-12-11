@@ -1,3 +1,3 @@
 ## Laravel Custom Pagination
-## Pagination Design in Vue js
+## Pagination Row Design in Vue js
 
